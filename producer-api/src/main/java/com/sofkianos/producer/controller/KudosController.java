@@ -4,21 +4,16 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.Map;
 
 /**
  * REST controller that accepts Kudos and publishes them to RabbitMQ.
- *
- * <p>Architecture principles:
- * <ul>
- *     <li>API Gateway Pattern: provides the unified HTTP entrypoint for Kudos submissions.</li>
- *     <li>Asynchronous Messaging: publishes messages to the broker without persistence.</li>
- *     <li>Separation of Concerns: focuses on HTTP orchestration, delegating messaging to RabbitTemplate.</li>
- * </ul>
  */
 @RestController
 @RequestMapping("/api/v1/kudos")
