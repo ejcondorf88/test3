@@ -44,17 +44,6 @@ services:
         condition: service_healthy
     networks:
       - sofkian-net
-
-  frontend:
-    build: ./frontend
-    container_name: sofkianos-frontend
-    ports:
-      - "5173:5173"
-    depends_on:
-      - producer-api
-    networks:
-      - sofkian-net
-
   log-viewer:
     image: amir20/dozzle:latest
     container_name: sofkianos-log-viewer
