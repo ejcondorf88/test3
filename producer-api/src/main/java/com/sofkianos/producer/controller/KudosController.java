@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Map;
+import org.springframework.util.StringUtils;
+
 
 /**
  * REST controller that accepts Kudos and publishes them to RabbitMQ.
