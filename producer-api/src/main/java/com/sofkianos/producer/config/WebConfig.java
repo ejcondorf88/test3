@@ -14,14 +14,12 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins(
-                                "http://localhost:5173",
-                                "http://127.0.0.1:5173",
-                                "https://test3-vvxg.vercel.app",
-                                "https://test3-vvxg-git-release-100-ejcondorf88s-projects.vercel.app",
-                                "https://test3-vvxg-kk9qpfwth-ejcondorf88s-projects.vercel.app"
+                        .allowedOriginPatterns(
+                                "http://localhost:[*]",
+                                "http://127.0.0.1:[*]",
+                                "https://test3-vvxg*.vercel.app"
                         )
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedMethods("*")
                         .allowedHeaders("*")
                         .allowCredentials(true);
             }
